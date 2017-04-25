@@ -50,4 +50,20 @@ public class Pojo {
 		doubleToLongBits.accumulateAndGet(Double.doubleToLongBits(d),
 				(left, right) -> Double.doubleToLongBits(Double.longBitsToDouble(left) + Double.longBitsToDouble(right)));
 	}
+
+	public long getAtomicLongVar() {
+		return atomicLongVar.get();
+	}
+
+	public long getLongVar() {
+		return LONG_UPDATER.get(this);
+	}
+
+	public double getDoubleVar() {
+		return DOUBLE_UPDATER.get(this);
+	}
+
+	public double getDoubleToLongBits() {
+		return Double.longBitsToDouble(doubleToLongBits.get());
+	}
 }
