@@ -18,8 +18,8 @@ public class ReentrantLockExample {
         }
         void recursiveFunction(int nestIndex) {
             if(nestIndex != 5)  {
+                REENTRANT_LOCK.lock();
                 try{
-                    REENTRANT_LOCK.lock();
                     System.out.println(Thread.currentThread().getName() + " - " +
                             REENTRANT_LOCK.getHoldCount());
                     recursiveFunction(nestIndex + 1);
